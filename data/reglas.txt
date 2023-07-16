@@ -1,0 +1,5 @@
+A=1 and B=0 and C=1 => C01,
+A=0 and B=1 and C=1 => C01,
+A=1 and B=1 and C=0 => C02,
+A=1 and B=0 and C=0 => C03,
+A=1 and B=1 and C=1 => C03

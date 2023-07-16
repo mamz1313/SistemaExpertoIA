@@ -1,0 +1,3 @@
+C01 => Acne,
+C02 => Vitiligo,
+C03 => Dermatitis

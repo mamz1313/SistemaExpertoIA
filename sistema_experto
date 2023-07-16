@@ -1,0 +1,55 @@
+def leer_archivo(reglas):
+    with open(reglas, "r") as file:
+        contenido = file.read()
+    return contenido
+
+ruta_reglas = "data/reglas.txt"
+ruta_enfermedades = "data/enfermedades.txt"
+
+def directorio_enfermedades(enfermedad):
+    enfermedades = enfermedad.split(",\n")
+    directorio_enf = {}
+    for i in enfermedades:
+        input_enfermedades, output_Enfermedades = i.split(" => ")
+        directorio_enf[input_enfermedades] = output_Enfermedades
+    
+    return directorio_enf
+
+def directorio_regla(regla):
+    reglas = regla.split(",\n")
+    directorio_reglas = {} #valores y resultados
+    directorio_condiciones = {}
+    
+    for i in reglas:
+        input_valores, output_valores = i.split(" => ")
+        input_valores_condiciones = input_valores.split(" and ")
+        for i in input_valores_condiciones:
+            input_condicion_x, input_condicion_y = i.split("=")
+            directorio_condiciones[input_condicion_x] = int(input_condicion_y)
+
+        directorio_reglas[output_valores]=directorio_condiciones
+
+    return directorio_reglas
+
+reglas_generales = directorio_regla(leer_archivo(ruta_reglas))
+dir_enf = directorio_enfermedades(leer_archivo(ruta_enfermedades))
+
+# print(dir_enf)
+
+def procesar_datos():
+    
+    pass
+
+# for j in reglas_generales:
+#     for i in dir_enf:
+#         if i == j:
+#             nombre = dir_enf.get(i)
+#             codigo = i
+#             datos = reglas_generales.get(j)
+#             print(f"""
+#                   Nombre: {nombre}
+#                   Codigo: {codigo}
+#                   Datos: {datos}
+                  
+#                   """)
+
